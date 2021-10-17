@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 list=~/.todo/.list
 (:)
 linecount=$(cat $list | wc -l )
