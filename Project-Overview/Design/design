@@ -1,0 +1,9 @@
+Have 4 executable shell files
+New-Task (NT)
+List-Task (LT)
+Duplicate-Task (DT)
+Remove-Task (RT)
+NT - adds a task to list
+List-Task - shows a list of all files
+DT - Take a task and duplicate to the bottom
+RT - Remove a task from list
