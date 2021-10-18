@@ -1,15 +1,4 @@
 #!/bin/bash
-
-ConfirmNo(){
-  if test "$Confirm" = n -o "$Confirm" = N -o "$Confirm" = "" ; then
-        echo "Canceled"
-        exit
-  else
-        echo "Invalid Answer"
-        exit
-  fi
-}
-
 read -p "What task # would you like to remove?" Task
 FullTask=$(sed -n "$Task"p ~/.todo/.list)
 
@@ -24,5 +13,10 @@ fi
   echo "Removed $Task. $FullTask from task list"
   exit
   fi
-  ConfirmNo
-  exit
+  if test "$Confirm" = n -o "$Confirm" = N -o "$Confirm" = "" ; then
+        echo "Canceled"
+        exit
+  else
+        echo "Invalid Answer"
+        exit
+  fi
