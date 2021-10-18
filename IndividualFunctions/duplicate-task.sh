@@ -27,4 +27,3 @@ fi
   fi
   ConfirmNo
   exit
-fi
