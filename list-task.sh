@@ -1,9 +1,9 @@
-#!/bin/bash 
+#!/bin/bash
 list=~/.todo/.list
 (:)
 linecount=$(cat $list | wc -l )
 if test $linecount -ge $LINES ; then
-  cat "$list" | less
+  cat -n "$list" | less
 else
-  cat "$list"
+  cat -n "$list"
 fi
