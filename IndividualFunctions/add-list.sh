@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 if [ ! -d ~/.todo ]; then
   mkdir ~/.todo
   touch ~/.todo/.list
