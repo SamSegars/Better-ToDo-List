@@ -78,22 +78,27 @@ read -p "         1. Add
          4. Duplicate
          5. Exit
 Which Function would you like to use? " Choice
+
 if test $Choice = 1 ; then
   echo "Add Selected"
   add-task
 fi
+
 if test $Choice = 2; then
   echo "List Selected"
   list-task
 fi
+
 if test $Choice = 3; then
   echo "Remove Selected"
   remove-task
 fi
+
 if test $Choice = 4; then
   echo "Duplicate Selected"
   duplicate
 fi
+
 if test $Choice != 1 -a $Choice != 2 -a $Choice != 3 -a $Choice != 4 ; then
   if test $Choice = 5; then
     echo "Exit Selected"
