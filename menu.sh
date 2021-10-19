@@ -17,11 +17,11 @@ remove-task (){
   fi
   if test "$Task" != "" ; then
     read -p "Are you sure you want to remove $Task. $FullTask? [y,N]" Confirm
-    if test "$Confirm" = "y" -o "$Confirm" = "Y" ; then
-    sed -i ""$Task"d" ~/.todo/.list
-    echo "Removed $Task. $FullTask from task list"
-    fi
-    Confirmno
+      if test "$Confirm" = "y" -o "$Confirm" = "Y" ; then
+        sed -i ""$Task"d" ~/.todo/.list
+        echo "Removed $Task. $FullTask from task list"
+      fi
+      Confirmno
   fi
 }
 add-task(){
@@ -29,10 +29,12 @@ add-task(){
     mkdir ~/.todo
     touch ~/.todo/.list
   fi
-  read -p "What task would you like to add?" Task
-  if test "$Task" = "" ; then
-    echo "No Input recorded, Exiting..."
-  fi
+read -p "What task would you like to add?" Task
+
+if test "$Task" = "" ; then
+  echo "No Input recorded, Exiting..."
+fi
+
 if test "$Task" != "" ; then
   echo "$Task" >> ~/.todo/.list
   NTask=$(cat -n ~/.todo/.list | tail -n 1)
@@ -43,29 +45,33 @@ list-task (){
     list=~/.todo/.list
     (:)
     linecount=$(cat $list | wc -l )
-    if test $linecount -ge $LINES ; then
-      cat -n "$list" | less
-    else
-      cat -n "$list"
-    fi
+      if test $linecount -ge $LINES ; then
+        cat -n "$list" | less
+      else
+        cat -n "$list"
+      fi
     }
  duplicate(){
    read -p "Which task # would you like to duplicate?" Task
+
    FullTask=$(sed -n "$Task"p ~/.todo/.list)
+
    if test "$Task" = "" ; then
      echo "No Input recorded, Exiting...."
    fi
+
 if test "$Task" != "" ; then
      read -p "Are you sure you want to duplicate $Task. $FullTask? [y,N]" Confirm
-     if test "$Confirm" = "y" -o "$Confirm" = "Y" ; then
-       echo $FullTask >> ~/.todo/.list
-       NTask=$(cat -n ~/.todo/.list |tail -n 1)
-       echo "Created "$NTask""
-     fi
-     Confirmno
+
+        if test "$Confirm" = "y" -o "$Confirm" = "Y" ; then
+          echo $FullTask >> ~/.todo/.list
+          NTask=$(cat -n ~/.todo/.list |tail -n 1)
+          echo "Created "$NTask""
+        fi
+        Confirmno
 fi
  }
-while test "$Continue" = "y" ; do
+while test "$Continue" = "y" -o "$Continue" = "Y" ; do
 read -p "         1. Add
          2. List
          3. Remove
@@ -93,7 +99,7 @@ if test $Choice != 1 -a $Choice != 2 -a $Choice != 3 -a $Choice != 4 ; then
     echo "Exit Selected"
     exit
   else
-    echo "Invalid Answer, Exiting..."
+    echo "Invalid Answer"
   fi
 fi
 read -p "Would you like to continue? [y,N]" Continue
