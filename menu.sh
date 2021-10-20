@@ -10,7 +10,7 @@ Confirmno (){
   fi
 }
 remove-task (){
-  read -p "What task # would you like to remove?" Task
+  read -p "What task # would you like to remove? " Task
   FullTask=$(sed -n "$Task"p ~/.todo/.list)
   if test "$Task" = "" ; then
     echo "No Input recorded, Exiting..."
@@ -29,7 +29,7 @@ add-task(){
     mkdir ~/.todo
     touch ~/.todo/.list
   fi
-read -p "What task would you like to add?" Task
+read -p "What task would you like to add? " Task
 
 if test "$Task" = "" ; then
   echo "No Input recorded, Exiting..."
@@ -51,8 +51,8 @@ list-task (){
         cat -n "$list"
       fi
     }
- duplicate(){
-   read -p "Which task # would you like to duplicate?" Task
+duplicate(){
+   read -p "Which task # would you like to duplicate? " Task
 
    FullTask=$(sed -n "$Task"p ~/.todo/.list)
 
